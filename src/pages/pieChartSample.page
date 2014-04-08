@@ -1,0 +1,9 @@
+<apex:page controller="ctrl_pieChartSample">
+	<apex:form id="theForm">
+			<apex:chart data="{!summaryData}" height="200" width="300">
+		        <apex:pieSeries labelField="stage" dataField="totalAmount" donut="20">
+		        	<apex:chartTips height="60" width="120"/>
+		        </apex:pieSeries>
+		    </apex:chart>
+	</apex:form>
+</apex:page>

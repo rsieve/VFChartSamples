@@ -1,0 +1,36 @@
+<apex:page controller="ctrl_barChartSample">
+	<apex:form id="theForm">
+		<apex:pageBlock title="Bar Chart Sample">
+			<apex:chart data="{!summaryData}" height="450" width="750">
+				<apex:legend position="bottom"/>
+				
+				<apex:axis type="Category" position="bottom" fields="stage" title="Stage Name">
+					<apex:chartLabel rotate="90"/>
+				</apex:axis>
+			
+			 	<apex:axis type="Numeric" position="left" fields="totalAmount"  title="Total Amount" grid="false"/>
+				<apex:barSeries title="Total Amount" orientation="vertical" axis="left"  xField="stage" yField="totalAmount,weightedRevenue">
+					<apex:chartTips height="60" width="120"/>
+				</apex:barSeries>
+				<!-- Stacked bars -->
+				<!--
+				<apex:barSeries orientation="vertical" axis="left" colorset="#33FF33"  xField="stage" yField="weightedRevenue">
+					<apex:chartTips height="60" width="120"/>
+				</apex:barSeries>
+				-->
+				
+				<!-- Filled Line Series -->
+				<!--
+				<apex:lineSeries title="Weighted Revenue" axis="left" xField="stage" yField="weightedRevenue" fill="true" markerType="circle" markerSize="4" markerFill="#33FF33">
+					<apex:chartTips height="60" width="120"/>
+				</apex:lineSeries>
+				-->
+				<apex:axis type="Numeric" position="right" fields="probability"  title="Average Probability" grid="false"/>
+				<apex:lineSeries title="Probability" axis="right" xField="stage" yField="probability" fill="false" markerType="cross" markerSize="4" markerFill="#FF0000">
+					<apex:chartTips height="60" width="120"/>
+				</apex:lineSeries>
+				
+			</apex:chart>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page controller="ctrl_radarChartSample">
+	<apex:form id="theForm">
+		<apex:pageBlock title="Radar Chart Sample">
+			<apex:chart height="600" width="800" legend="true" data="{!summaryData}">
+			    <apex:legend position="left"/>
+			    <apex:axis type="Radial" position="radial">
+			        <apex:chartLabel />
+			    </apex:axis>
+			    <apex:radarSeries title="Weighted Revenue" xField="stage" yField="weightedRevenue" tips="true"  markerType="circle" opacity="0.4">
+			    	<apex:chartTips height="120" width="120"/>
+			    </apex:radarSeries>
+			    <apex:radarSeries title="Total Amount"  xField="stage" yField="totalAmount" tips="true" markerType="cross" opacity="0.4">
+			    	<apex:chartTips height="120" width="120"/>
+			    </apex:radarSeries>
+			</apex:chart>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>
